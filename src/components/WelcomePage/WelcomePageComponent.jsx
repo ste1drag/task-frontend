@@ -3,6 +3,7 @@ import getAllMessages from "../../services/welcomePage.service";
 
 const WelcomePageComponent = () => {
     const [data,setData] = useState([]);
+
     useEffect(() => {
         getAllMessages().then((messages) => {
             setData([...messages]);
@@ -10,9 +11,9 @@ const WelcomePageComponent = () => {
     },[]);
 
     let messages = [];
-    if(data){
-        data.map((message) => messages.push(<li>{message.content}</li>) );
-    }
+
+    data.map((message) => messages.push(<li>{message.content}</li>) );
+
     return (
         <>
             <h1>Guestbook</h1>
